@@ -1,0 +1,35 @@
+{
+  "person": {
+    "name": "Matthias Struck",
+    "photo": "doc/ich/MatthiasStruck.jpg"
+  },
+  "entries": [
+    {
+      "type": "experience",
+      "title": "Senior Developer",
+      "organization": "Firma XYZ",
+      "startDate": "2020-01",
+      "endDate": "2025-06",
+      "description": "Verantwortlich für …",
+      "tags": ["Flutter", "Python", "Teamlead"]
+    },
+    {
+      "type": "certificate",
+      "title": "Zertifikat: Cloud Architect",
+      "issuer": "AWS",
+      "date": "2023-11",
+      "file": "doc/ich/cert-aws-cloud-arch.pdf"
+    },
+    {
+      "type": "education",
+      "title": "M.Sc. Informatik",
+      "organization": "TU Musterstadt",
+      "startDate": "2012-10",
+      "endDate": "2016-09"
+    }
+  ],
+  "skills": [
+    { "name": "Flutter", "category": "Framework", "level": 5 },
+    { "name": "Python",  "category": "Sprache",  "level": 4 }
+  ]
+}

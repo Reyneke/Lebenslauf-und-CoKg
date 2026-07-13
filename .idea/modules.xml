@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lebenslauf_und_cokg.iml" filepath="$PROJECT_DIR$/lebenslauf_und_cokg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/lebenslauf_und_cokg_android.iml" filepath="$PROJECT_DIR$/android/lebenslauf_und_cokg_android.iml" />
+    </modules>
+  </component>
+</project>
