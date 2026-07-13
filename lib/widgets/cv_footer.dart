@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/legal_screen.dart';
 
 class CvFooter extends StatelessWidget {
   const CvFooter({super.key});
@@ -36,6 +37,40 @@ class CvFooter extends StatelessWidget {
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 16,
+            runSpacing: 4,
+            alignment: WrapAlignment.center,
+            children: [
+              TextButton.icon(
+                icon: const Icon(Icons.info_outline, size: 16),
+                label: const Text('Impressum'),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const LegalScreen(showPrivacy: false),
+                  ),
+                ),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.shield_outlined, size: 16),
+                label: const Text('Datenschutz'),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const LegalScreen(showPrivacy: true),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

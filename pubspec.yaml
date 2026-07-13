@@ -35,3 +35,20 @@ flutter:
   assets:
     - data/
     - doc/ich/
+    - assets/fonts/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.woff2
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.woff2
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.woff2
+          weight: 600
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.woff2
+          weight: 400
+        - asset: assets/fonts/Lato-Bold.woff2
+          weight: 700

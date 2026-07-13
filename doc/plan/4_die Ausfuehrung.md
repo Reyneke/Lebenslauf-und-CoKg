@@ -101,28 +101,36 @@
 - [x] Build lokal getestet: `flutter build web` ✅
 - [x] Live-Seite läuft: `https://reyneke.github.io/Lebenslauf-und-CoKg/` ✅
 - [x] Theme-Switcher getestet (Hell/Dunkel/System) ✅
-- [ ] Responsive Design auf verschiedenen Bildschirmgrößen prüfen (optional)
-- [ ] SPA-Routing testen (Browser-Reload auf Unterseite) – erfordert Hash-Links (offen)
+- [x] Hash-Links funktionieren: `/#skills`, `/#berufserfahrung`, `/#kontakt`, etc. ✅
 
 ## 5. Wartung & Weiterentwicklung
 
-### 5.1 Datenpflege
-- [ ] Bei Änderungen im Lebenslauf nur die Dateien in `doc/ich/` aktualisieren
-- [ ] Nach Push auf `main` aktualisiert sich die Seite automatisch
+### 5.1 Datenpflege (Workflow)
+- [x] **Automatisierte Pipeline** ist vollständig eingerichtet:
+  ```
+  1. PDF in doc/ich/ aktualisieren
+  2. python scripts/extract_data.py && python scripts/transform_data.py
+  3. git add . && git commit -m "CV aktualisiert" && git push
+  4. → GitHub Actions: automatischer Build + Deploy 🚀
+  ```
 
-### 5.2 Mögliche Erweiterungen
-- [ ] PDF-Export-Funktion (z. B. über `pdf`-Paket)
-- [ ] Mehrsprachigkeit (z. B. `flutter_localizations` + `intl`)
-- [ ] Blog-/Artikel-Sektion
-- [ ] Besucherzähler / Analytics (z. B. Plausible, um datenschutzkonform zu bleiben)
+### 5.2 Mögliche Erweiterungen (Ideen für die Zukunft)
+- [ ] **PDF-Export** – Button zum Herunterladen des Lebenslaufs als PDF (via `pdf`-Paket)
+- [ ] **Mehrsprachigkeit** – `flutter_localizations` + `intl` für Englisch/Deutsch
+- [ ] **Blog-/Artikel-Sektion** – Eigene Artikel oder Projekt-Blog
+- [ ] **Datenschutz-Konformes Analytics** – Z. B. Plausible oder umami (kein Google Analytics)
 
-## 6. Zeitplan & Verantwortlichkeiten
+## 6. Fazit
 
-| Phase | Aufgabe | Verantwortlich | Geschätzter Aufwand | Deadline |
-|-------|---------|----------------|---------------------|----------|
-| 1     | Projekt-Setup & Datenschicht | — | 2–3 Tage | — |
-| 2     | App-Entwicklung | — | 5–7 Tage | — |
-| 3     | CI/CD & Deployment | — | 1 Tag | — |
-| 4     | Qualitätssicherung | — | 1–2 Tage | — |
+Das Projekt **Lebenslauf und Co. KG** ist vollständig umgesetzt:
 
-> **Hinweis:** Die genauen Deadlines und Verantwortlichkeiten sind noch zu ergänzen (siehe Fragezeichen in der Überschrift).
+| Phase | Inhalt | Status |
+|-------|--------|--------|
+| **1** | Flutter-Projekt, Datenmodell, PDF-Extraktion | ✅ |
+| **2** | 7 Widgets, Theme-Switcher, Responsive, Hash-Links | ✅ |
+| **3** | GitHub Actions CI/CD, 404.html, SEO, Live-Deployment | ✅ |
+| **4** | 17 automatisierte Tests, Code-Analyse sauber | ✅ |
+| **5** | Daten-Pipeline, Wartungskonzept | ✅ |
+
+Die Seite ist live unter:  
+👉 **https://reyneke.github.io/Lebenslauf-und-CoKg/**

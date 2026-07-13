@@ -39,6 +39,47 @@
 
   <title>Lebenslauf und Co. KG – Matthias Struck</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- JSON-LD Structured Data (Schema.org Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matthias Struck",
+    "givenName": "Matthias",
+    "familyName": "Struck",
+    "birthDate": "1981-01-06",
+    "email": "MatthiasStruck@gmx.net",
+    "telephone": "+49-30-3337311",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Glacisweg 9",
+      "postalCode": "13583",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "url": "https://reyneke.github.io/Lebenslauf-und-CoKg/",
+    "sameAs": [
+      "https://github.com/Reyneke"
+    ],
+    "jobTitle": "Software Developer",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Technische Informatik"
+      }
+    ],
+    "knowsAbout": [
+      "Softwareentwicklung",
+      "C/C++",
+      "Flutter",
+      "Java",
+      "Embedded Systems",
+      "Agile Methoden"
+    ],
+    "description": "Persönliche CV-Webseite von Matthias Struck – Dipl. Ing. (FH) Technische Informatik"
+  }
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
+  // Poppins has weights: 400 (Regular), 500 (Medium), 600 (SemiBold)
+  // Lato has weights: 400 (Regular), 700 (Bold)
+  // Since Lato has no 500/600, we use 400 for medium and 700 for bold/semibold
+
+  static const String _displayFont = 'Poppins';
+  static const String _bodyFont = 'Lato';
+
   static final lightTheme = ThemeData(
     textTheme: baseTextTheme,
     colorScheme: ColorScheme.fromSeed(
@@ -19,48 +25,54 @@ abstract class AppTheme {
 
   static final TextTheme baseTextTheme = TextTheme(
     // Display Styles - für Hero-Texte
-    displayLarge: GoogleFonts.poppins(
+    displayLarge: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 57,
       fontWeight: FontWeight.w400,
       letterSpacing: -0.25,
     ),
-    displayMedium: GoogleFonts.poppins(
+    displayMedium: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 45,
       fontWeight: FontWeight.w400,
     ),
-    displaySmall: GoogleFonts.poppins(
+    displaySmall: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 36,
       fontWeight: FontWeight.w400,
     ),
 
     // Headline Styles - für Überschriften
-    headlineLarge: GoogleFonts.poppins(
+    headlineLarge: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 32,
       fontWeight: FontWeight.w600,
     ),
-    headlineMedium: GoogleFonts.poppins(
+    headlineMedium: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 28,
       fontWeight: FontWeight.w600,
     ),
-    headlineSmall: GoogleFonts.poppins(
+    headlineSmall: TextStyle(
+      fontFamily: _displayFont,
       fontSize: 24,
       fontWeight: FontWeight.w500,
     ),
 
     // Title Styles - für Komponenten-Titel
-    titleLarge: GoogleFonts.lato(fontSize: 22, fontWeight: FontWeight.w600),
-    titleMedium: GoogleFonts.lato(fontSize: 18, fontWeight: FontWeight.w500),
-    titleSmall: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w500),
+    titleLarge: TextStyle(fontFamily: _bodyFont, fontSize: 22, fontWeight: FontWeight.w700),
+    titleMedium: TextStyle(fontFamily: _bodyFont, fontSize: 18, fontWeight: FontWeight.w400),
+    titleSmall: TextStyle(fontFamily: _bodyFont, fontSize: 16, fontWeight: FontWeight.w400),
 
     // Body Styles - für Fließtext
-    bodyLarge: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w400),
-    bodyMedium: GoogleFonts.lato(fontSize: 14, fontWeight: FontWeight.w400),
-    bodySmall: GoogleFonts.lato(fontSize: 12, fontWeight: FontWeight.w400),
+    bodyLarge: TextStyle(fontFamily: _bodyFont, fontSize: 16, fontWeight: FontWeight.w400),
+    bodyMedium: TextStyle(fontFamily: _bodyFont, fontSize: 14, fontWeight: FontWeight.w400),
+    bodySmall: TextStyle(fontFamily: _bodyFont, fontSize: 12, fontWeight: FontWeight.w400),
 
     // Label Styles - für Beschriftungen
-    labelLarge: GoogleFonts.lato(fontSize: 14, fontWeight: FontWeight.w500),
-    labelMedium: GoogleFonts.lato(fontSize: 12, fontWeight: FontWeight.w500),
-    labelSmall: GoogleFonts.lato(fontSize: 11, fontWeight: FontWeight.w500),
+    labelLarge: TextStyle(fontFamily: _bodyFont, fontSize: 14, fontWeight: FontWeight.w400),
+    labelMedium: TextStyle(fontFamily: _bodyFont, fontSize: 12, fontWeight: FontWeight.w400),
+    labelSmall: TextStyle(fontFamily: _bodyFont, fontSize: 11, fontWeight: FontWeight.w400),
   );
 
   static final ValueNotifier<ThemeMode> themeModeNotifier = ValueNotifier(
