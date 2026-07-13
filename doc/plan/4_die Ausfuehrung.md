@@ -69,9 +69,10 @@
 - [ ] Workflow testen (Push auf `main` → automatischer Build + Deploy) – **nach erstem Push prüfen**
 
 ### 3.2 GitHub Pages konfigurieren
-- [ ] *Settings → Pages → Source* auf **GitHub Actions** umstellen
-  - Nach dem ersten Push auf `main` muss in den Repository-Settings umgestellt werden
-  - Dazu: GitHub → Repository → Settings → Pages → Source → "GitHub Actions" auswählen
+- [x] Push auf `main` erfolgt – Workflow läuft automatisch
+- [ ] **Letzter manueller Schritt:** GitHub → Repository → Settings → Pages → Source → **"GitHub Actions"** auswählen
+  - Nach der Umstellung wird der nächste Push automatisch deployed
+  - Die Seite ist dann live unter: `https://reyneke.github.io/Lebenslauf-und-CoKg/`
 - [ ] Optional: Eigene Domain (CNAME) einrichten
 
 ### 3.3 Web-Frontend optimiert
