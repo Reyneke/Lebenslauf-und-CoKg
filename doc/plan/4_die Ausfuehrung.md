@@ -1,0 +1,1 @@
+Wer, wie, wann, wo und mit wem? Möglichst dertaillierter Ausführungsplan.
