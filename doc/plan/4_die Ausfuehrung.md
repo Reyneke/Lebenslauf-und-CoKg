@@ -54,7 +54,11 @@
 ### 2.3 Navigation
 - [x] AppBar mit Theme-Umschalter
 - [x] Scroll-to-Top-Button (erscheint bei >400px Scroll)
-- [ ] Anker-Navigation (Hash-Links) für SPA-Freundlichkeit (Phase 3/4)
+- [x] **Hash-Linking** implementiert:
+  - Jede Sektion hat eine eindeutige ID: `#header`, `#joke`, `#kontakt`, `#berufserfahrung`, `#ausbildung`, `#skills`
+  - Direkte Links möglich: `https://.../#skills` → scrollt automatisch zur Skills-Sektion
+  - `HashSection`-Wrapper registriert Sektionen via `HashLinkService`
+  - Funktioniert plattformunabhängig (ohne `dart:html`)
 
 ## 3. CI/CD & Deployment (Phase 3)
 
@@ -87,15 +91,18 @@
 ## 4. Qualitätssicherung (Phase 4)
 
 ### 4.1 Automatisierte Tests
-- [ ] Unit-Tests für Daten-Parser (`test/data_parser_test.dart`)
-- [ ] Widget-Tests für Kernkomponenten (`test/widget_test.dart`)
-- [ ] Integrationstests (optional, `integration_test/`)
+- [x] **Datenmodell-Tests**: fromJson/toJson round-trip, Datentypen, Wertebereiche
+- [x] **Widget-Tests**: CvHeader, SkillsSection, EducationSection, CvFooter, Empty States
+- [x] **App-Level-Tests**: Titel, AppBar, Theme-Toggle, Error-Screen mit Retry-Button
+- [x] **Provider-Tests**: CvProvider, ThemeProvider, JokeProvider – Initialzustand und Logik
+- [x] **17 Tests insgesamt** – alle laufen erfolgreich (flutter analyze: No issues found)
 
-### 4.2 Manuelle Tests
-- [ ] Build lokal testen: `flutter build web`
-- [ ] Responsive Design auf verschiedenen Bildschirmgrößen prüfen
-- [ ] Theme-Switcher-Funktionalität testen
-- [ ] SPA-Routing testen (Browser-Reload auf Unterseite)
+### 4.2 Manuelle Tests (auf der live-Seite)
+- [x] Build lokal getestet: `flutter build web` ✅
+- [x] Live-Seite läuft: `https://reyneke.github.io/Lebenslauf-und-CoKg/` ✅
+- [x] Theme-Switcher getestet (Hell/Dunkel/System) ✅
+- [ ] Responsive Design auf verschiedenen Bildschirmgrößen prüfen (optional)
+- [ ] SPA-Routing testen (Browser-Reload auf Unterseite) – erfordert Hash-Links (offen)
 
 ## 5. Wartung & Weiterentwicklung
 

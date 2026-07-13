@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cv_provider.dart';
 import '../providers/theme_provider.dart';
+import '../services/hash_link_service.dart';
 import '../widgets/cv_header.dart';
 import '../widgets/career_timeline.dart';
 import '../widgets/education_section.dart';
@@ -9,6 +10,7 @@ import '../widgets/skills_section.dart';
 import '../widgets/contact_section.dart';
 import '../widgets/joke_card.dart';
 import '../widgets/cv_footer.dart';
+import '../widgets/hash_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<CvProvider>().loadCvData();
+      context.read<CvProvider>().loadCvData().then((_) {
+        // After CV data is loaded, handle any initial URL hash
+        HashLinkService.handleInitialHash();
+      });
     });
     _scrollController.addListener(_onScroll);
   }
@@ -54,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Lebenslauf und Co. KG'),
         actions: [
-          // Theme switcher
           IconButton(
             icon: Icon(
               themeProvider.themeMode == ThemeMode.dark
@@ -71,7 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           _buildBody(cvProvider, isWide),
-          // Scroll-to-top button
           if (_showScrollToTop)
             Positioned(
               bottom: 24,
@@ -141,37 +144,56 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final cvData = cvProvider.cvData!;
 
-    // Build the content
+    // Build the content with hash-linkable sections
     Widget content = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 32),
+
         // Header
-        CvHeader(person: cvData.person),
+        HashSection(
+          id: 'header',
+          child: CvHeader(person: cvData.person),
+        ),
 
         // Joke of the day
-        const JokeCard(),
+        const HashSection(
+          id: 'joke',
+          child: JokeCard(),
+        ),
 
         // Contact info
-        ContactSection(
-          email: cvData.person.email,
-          phone: cvData.person.phone,
-          github: cvData.person.github,
-          address: cvData.person.address,
+        HashSection(
+          id: 'kontakt',
+          child: ContactSection(
+            email: cvData.person.email,
+            phone: cvData.person.phone,
+            github: cvData.person.github,
+            address: cvData.person.address,
+          ),
         ),
 
         const Divider(height: 48),
 
         // Career timeline
-        CareerTimeline(entries: cvData.entries),
+        HashSection(
+          id: 'berufserfahrung',
+          child: CareerTimeline(entries: cvData.entries),
+        ),
 
         // Education
-        EducationSection(entries: cvData.entries),
+        HashSection(
+          id: 'ausbildung',
+          child: EducationSection(entries: cvData.entries),
+        ),
 
         const Divider(height: 48),
 
         // Skills
-        SkillsSection(skills: cvData.skills),
+        HashSection(
+          id: 'skills',
+          child: SkillsSection(skills: cvData.skills),
+        ),
 
         // Footer
         const CvFooter(),

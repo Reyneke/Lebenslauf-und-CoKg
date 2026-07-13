@@ -17,9 +17,9 @@ CvData _$CvDataFromJson(Map<String, dynamic> json) => CvData(
 );
 
 Map<String, dynamic> _$CvDataToJson(CvData instance) => <String, dynamic>{
-  'person': instance.person,
-  'entries': instance.entries,
-  'skills': instance.skills,
+  'person': instance.person.toJson(),
+  'entries': instance.entries.map((e) => e.toJson()).toList(),
+  'skills': instance.skills.map((e) => e.toJson()).toList(),
 };
 
 Person _$PersonFromJson(Map<String, dynamic> json) => Person(

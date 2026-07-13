@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cv_data.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class CvData {
   final Person person;
   final List<CvEntry> entries;
