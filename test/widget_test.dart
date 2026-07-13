@@ -5,51 +5,42 @@ import 'package:provider/provider.dart';
 import 'package:lebenslauf_und_cokg/main.dart';
 import 'package:lebenslauf_und_cokg/providers/theme_provider.dart';
 import 'package:lebenslauf_und_cokg/providers/cv_provider.dart';
+import 'package:lebenslauf_und_cokg/providers/joke_provider.dart';
 
-Widget createTestApp() {
+Widget wrapWithProviders(Widget child) {
   return MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ChangeNotifierProvider(create: (_) => CvProvider()),
+      ChangeNotifierProvider(create: (_) => JokeProvider()),
     ],
-    child: const MaterialApp(
-      home: Scaffold(
-        body: Text('Test'),
-      ),
-    ),
+    child: child,
   );
 }
 
 void main() {
-  testWidgets('LebenslaufApp can be instantiated', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => ThemeProvider()),
-          ChangeNotifierProvider(create: (_) => CvProvider()),
-        ],
-        child: const LebenslaufApp(),
-      ),
-    );
+  testWidgets('LebenslaufApp shows title in AppBar',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(wrapWithProviders(const LebenslaufApp()));
 
-    // Verify that the app title is shown in the AppBar
     expect(find.text('Lebenslauf und Co. KG'), findsOneWidget);
   });
 
   testWidgets('AppBar is present with theme switcher button',
       (WidgetTester tester) async {
-    await tester.pumpWidget(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => ThemeProvider()),
-          ChangeNotifierProvider(create: (_) => CvProvider()),
-        ],
-        child: const LebenslaufApp(),
-      ),
-    );
+    await tester.pumpWidget(wrapWithProviders(const LebenslaufApp()));
 
-    // The AppBar should be present
     expect(find.byType(AppBar), findsOneWidget);
+    // Theme switcher icon button should be present
+    expect(find.byIcon(Icons.brightness_auto), findsOneWidget);
+  });
+
+  testWidgets('CvProvider has correct initial state',
+      (WidgetTester tester) async {
+    final cvProvider = CvProvider();
+    expect(cvProvider.cvData, isNull);
+    expect(cvProvider.isLoading, false);
+    expect(cvProvider.error, isNull);
   });
 
   testWidgets('ThemeProvider default theme mode is system',

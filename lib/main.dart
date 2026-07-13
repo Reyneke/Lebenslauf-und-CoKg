@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'theme/app_theme.dart';
 import 'providers/theme_provider.dart';
 import 'providers/cv_provider.dart';
+import 'providers/joke_provider.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -12,6 +13,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => CvProvider()),
+        ChangeNotifierProvider(create: (_) => JokeProvider()),
       ],
       child: const LebenslaufApp(),
     ),

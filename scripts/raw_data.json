@@ -4,179 +4,233 @@
     "photo": "doc/ich/MatthiasStruck.jpg",
     "email": "MatthiasStruck@gmx.net",
     "phone": "030 3337311",
-    "github": "https://github.com/Reyneke",
     "address": "L E B E N S L A U F\nKontaktdaten\nGlacisweg 9, 13583 Berlin",
-    "birthDate": "6. Januar 1981"
+    "birthDate": "6. Januar 1981",
+    "github": "https://github.com/Reyneke"
   },
   "entries": [
     {
       "type": "experience",
       "title": "Tätigkeit auf Github",
+      "organization": null,
       "startDate": "16/02/2026",
-      "description": ""
+      "endDate": null,
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Freelancer bei Pegasus Spiele, Redaktion „Shadowrun“",
+      "organization": null,
       "startDate": "16/07/2025",
-      "description": ""
+      "endDate": null,
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei Dryad",
+      "organization": null,
       "startDate": "10/2022",
       "endDate": "11/2022",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei Doorbird Home Automation",
+      "organization": null,
       "startDate": "09/2021",
       "endDate": "09/2022",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei X2E",
+      "organization": null,
       "startDate": "02/2021",
       "endDate": "06/2021",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei Automatentechnik Baumann",
+      "organization": null,
       "startDate": "03/2016",
       "endDate": "09/2020",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei Ferchau, vermietet an ATB",
+      "organization": null,
       "startDate": "11/2015",
       "endDate": "03/2016",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei netfabb GmbH (FIT Gruppe)",
+      "organization": null,
       "startDate": "03/2015",
       "endDate": "08/2015",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Software Developer bei Sintermask GmbH (FIT Gruppe)",
+      "organization": null,
       "startDate": "03/2013",
       "endDate": "03/2015",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Mobile Games Coder bei Handy-games.com GmbH",
+      "organization": null,
       "startDate": "11/2011",
       "endDate": "11/2012",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Moderne Anwendungsentwicklung bei appAkademie",
+      "organization": null,
       "startDate": "02/2026",
       "endDate": "07/2026",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Professional Agile Leader I bei Skilldrops Akademie",
+      "organization": null,
       "startDate": "04/2024",
       "endDate": "05/2024",
-      "description": "(Projektarbeit)"
+      "description": "(Projektarbeit)",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Professional Scrum Product Owner I bei Skilldrops Akademie",
+      "organization": null,
       "startDate": "03/2024",
       "endDate": "04/2024",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Professional Scrum Developer I bei Skilldrops Akademie",
+      "organization": null,
       "startDate": "02/2024",
       "endDate": "03/2024",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Professional Scrum Master I bei Skilldrops Akademie",
+      "organization": null,
       "startDate": "01/2024",
       "endDate": "02/2024",
-      "description": "(Gruppenarbeit)"
+      "description": "(Gruppenarbeit)",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Studentischer Mitarbeiter bei Kithara Software im Bereich",
+      "organization": null,
       "startDate": "04/2010",
       "endDate": "09/2011",
-      "description": "„Programmentwicklung: Test und Qualitätssicherung“"
+      "description": "„Programmentwicklung: Test und Qualitätssicherung“",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Praktikant bei Kithara Software im Bereich „Programmentwicklung:",
+      "organization": null,
       "startDate": "11/2009",
       "endDate": "04/2010",
-      "description": "(Determinismus, Gleichzeitigkeit, Rechtzeitigkeit)"
+      "description": "(Determinismus, Gleichzeitigkeit, Rechtzeitigkeit)",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Studium der Technischen Informatik, Spezialisierung",
+      "organization": null,
       "startDate": "09/2003",
       "endDate": "10/2011",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Studium der Elektronischen Geräte- und Mikrosystemtechnik an der",
+      "organization": null,
       "startDate": "09/2001",
       "endDate": "09/2003",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "experience",
       "title": "Grundwehrdienst",
+      "organization": null,
       "startDate": "11/2000",
       "endDate": "08/2001",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Ausbildung zum Assistenten für Automatisierungs- und",
+      "organization": null,
       "startDate": "07/1997",
       "endDate": "07/2000",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Gottfried-Kinkel-Oberschule (Realschule)",
+      "organization": null,
       "startDate": "07/1993",
       "endDate": "06/1997",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "education",
       "title": "Askanier-Grundschule, Berlin-Spandau",
+      "organization": null,
       "startDate": "07/1987",
       "endDate": "06/1993",
-      "description": ""
+      "description": "",
+      "tags": []
     },
     {
       "type": "certificate",
       "title": "Zertifikat komprimiert(1)",
-      "description": ""
+      "issuer": null,
+      "date": null,
+      "file": "doc/ich/Matthias Struck - Zertifikat (komprimiert)(1).pdf",
+      "tags": []
     },
     {
       "type": "certificate",
       "title": "Zertifikat(1)",
-      "description": ""
+      "issuer": null,
+      "date": null,
+      "file": "doc/ich/Matthias Struck - Zertifikat(1).pdf",
+      "tags": []
     }
   ],
   "skills": [

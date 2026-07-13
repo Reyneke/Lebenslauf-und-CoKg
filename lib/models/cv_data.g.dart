@@ -22,12 +22,24 @@ Map<String, dynamic> _$CvDataToJson(CvData instance) => <String, dynamic>{
   'skills': instance.skills,
 };
 
-Person _$PersonFromJson(Map<String, dynamic> json) =>
-    Person(name: json['name'] as String, photo: json['photo'] as String?);
+Person _$PersonFromJson(Map<String, dynamic> json) => Person(
+  name: json['name'] as String,
+  photo: json['photo'] as String?,
+  email: json['email'] as String?,
+  phone: json['phone'] as String?,
+  github: json['github'] as String?,
+  address: json['address'] as String?,
+  birthDate: json['birthDate'] as String?,
+);
 
 Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
   'name': instance.name,
   'photo': instance.photo,
+  'email': instance.email,
+  'phone': instance.phone,
+  'github': instance.github,
+  'address': instance.address,
+  'birthDate': instance.birthDate,
 };
 
 CvEntry _$CvEntryFromJson(Map<String, dynamic> json) => CvEntry(

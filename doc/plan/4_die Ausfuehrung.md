@@ -5,44 +5,56 @@
 ## 1. Projekt-Setup (Phase 1)
 
 ### 1.1 Flutter-Projekt initialisieren
-- [ ] Flutter Web-Plattform aktivieren: `flutter config --enable-web`
-- [ ] Neues Flutter-Projekt anlegen: `flutter create .` (falls nicht bereits geschehen)
-- [ ] Abhängigkeiten in `pubspec.yaml` definieren:
-  - `yaml` (Daten aus `doc/ich/` parsen)
-  - `provider` oder `riverpod` (State-Management)
-  - `url_launcher` (Kontaktlinks / Social-Media-Buttons)
-  - `flutter_lints` (Code-Qualität)
-- [ ] Theme aus `theme/app_theme.dart` importieren und als App-Theme setzen
+- [x] Flutter Web-Plattform aktivieren: `flutter config --enable-web`
+- [x] Neues Flutter-Projekt anlegen: `flutter create . --project-name=lebenslauf_und_cokg --platforms=web`
+- [x] Abhängigkeiten in `pubspec.yaml` definieren:
+  - `google_fonts` – Schriftarten (kompatibel mit Theme)
+  - `provider` – State-Management
+  - `yaml` – YAML-Parsing für Daten aus `doc/ich/`
+  - `url_launcher` – Kontaktlinks
+  - `shared_preferences` – Theme-Präferenz speichern
+  - `json_annotation` / `json_serializable` / `build_runner` – JSON-Code-Generierung
+  - `intl` – Datumsformatierung
+  - `flutter_lints` – Code-Qualität
+- [x] Theme aus `theme/app_theme.dart` importieren und als App-Theme in `main.dart` setzen
+- [x] Provider eingerichtet: `ThemeProvider` (Theme-Switcher mit Persistenz), `CvProvider` (Daten-Lader)
+- [x] UI-Screens: `HomeScreen` mit AppBar, Theme-Umschalter, Personen-Header, Skills & Stationen
+- [x] Tests: 4 Widget-/Unit-Tests laufen erfolgreich
 
 ### 1.2 Datenschicht aufbauen
-- [ ] Datenmodell in Dart definieren (z. B. `Lebenslauf`, `Station`, `Qualifikation`, etc.)
-- [ ] Parser schreiben, der die YAML-/Markdown-Dateien aus `doc/ich/` einliest
-- [ ] Daten in ein strukturiertes JSON- oder Dart-Objekt überführen
-- [ ] Tests für das Parsen schreiben (siehe Abschnitt 6)
+- [x] Datenmodell in Dart definiert: `CvData`, `Person`, `CvEntry`, `Skill` in `lib/models/cv_data.dart`
+- [x] Python-Extraktions-Skript (`scripts/extract_data.py`) erstellt:
+  - Extrahiert Text aus PDF via PyMuPDF
+  - Parst Abschnitte (Berufserfahrung, Ausbildung, Skills, Zertifikate)
+  - Schreibt `scripts/raw_data.json`
+- [x] Python-Transformations-Skript (`scripts/transform_data.py`) erstellt:
+  - Liest `raw_data.json`, normalisiert und schreibt `data/cv.json`
+- [x] Extraktion erfolgreich getestet: 25 Einträge, 80 Skills aus PDF extrahiert
+- [x] Daten in `data/cv.json` überführt (wird von Flutter-APP geladen)
 
 ## 2. App-Entwicklung (Phase 2)
 
 ### 2.1 Grundgerüst der App
-- [ ] `MaterialApp` mit dem Theme aus `theme/app_theme.dart` konfigurieren
-- [ ] Theme-Switcher (Hell/Dunkel) einbauen:
-  - Zustand über `Provider` oder `ChangeNotifier` verwalten
-  - Umschalter z. B. in der AppBar oder in einem Drawer platzieren
-  - Präferenz in `SharedPreferences` oder `Hive` speichern
-- [ ] Responsive Layout sicherstellen (Desktop, Tablet, Mobil)
+- [x] `MaterialApp` mit dem Theme aus `theme/app_theme.dart` konfiguriert
+- [x] Theme-Switcher (Hell/Dunkel/System) eingebaut:
+  - Zustand über `ThemeProvider` (`ChangeNotifier`) verwaltet
+  - Umschalter in der AppBar platziert (3 Modi: System → Hell → Dunkel)
+  - Präferenz in `SharedPreferences` gespeichert
+- [x] Responsive Layout: ConstrainedBox (maxWidth 960px) auf breiten Bildschirmen
 
 ### 2.2 Seiten/Komponenten
-- [ ] **Startseite / Header**: Name, Berufsbezeichnung, Kurzprofil
-- [ ] **Berufserfahrung**: Zeitstrahl (`Timeline`) oder Karten (`Cards`)
-- [ ] **Ausbildung**: Ähnliche Darstellung wie Berufserfahrung
-- [ ] **Qualifikationen / Skills**: Tags, Balkendiagramm oder Icons
-- [ ] **Projekte**: Galerie mit Beschreibungen und Links
-- [ ] **Kontakt**: E-Mail, LinkedIn, GitHub etc. (mit `url_launcher`)
-- [ ] **Footer**: Impressum / Letzte Aktualisierung
+- [x] **Startseite / Header**: `CvHeader` – Name, Profilbild, Berufsbezeichnung
+- [x] **Berufserfahrung**: `CareerTimeline` – Zeitstrahl mit Punkten, Karten, Datumsangabe
+- [x] **Ausbildung & Weiterbildung**: `EducationSection` – Karten mit School-Icon, Detail-Dialog
+- [x] **Qualifikationen / Skills**: `SkillsSection` – Kategorisiert mit Fortschrittsbalken (1–5)
+- [x] **IT-Joke des Tages**: `JokeCard` – Lädt täglich wechselnden Witz via JokeAPI/icanhazdadjoke
+- [x] **Kontakt**: `ContactSection` – E-Mail, Telefon, GitHub, Adresse mit `url_launcher`
+- [x] **Footer**: `CvFooter` – Impressum, Erstellungsinfo, letzte Aktualisierung
 
 ### 2.3 Navigation
-- [ ] AppBar mit `TabBar` oder `NavigationRail` (responsive)
-- [ ] Scroll-to-Top-Button bei langen Seiten
-- [ ] Anker-Navigation (Hash-Links) für SPA-Freundlichkeit
+- [x] AppBar mit Theme-Umschalter
+- [x] Scroll-to-Top-Button (erscheint bei >400px Scroll)
+- [ ] Anker-Navigation (Hash-Links) für SPA-Freundlichkeit (Phase 3/4)
 
 ## 3. CI/CD & Deployment (Phase 3)
 

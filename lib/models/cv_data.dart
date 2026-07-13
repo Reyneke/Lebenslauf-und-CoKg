@@ -22,8 +22,21 @@ class CvData {
 class Person {
   final String name;
   final String? photo;
+  final String? email;
+  final String? phone;
+  final String? github;
+  final String? address;
+  final String? birthDate;
 
-  Person({required this.name, this.photo});
+  Person({
+    required this.name,
+    this.photo,
+    this.email,
+    this.phone,
+    this.github,
+    this.address,
+    this.birthDate,
+  });
 
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
   Map<String, dynamic> toJson() => _$PersonToJson(this);
