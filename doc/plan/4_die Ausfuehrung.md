@@ -59,14 +59,29 @@
 ## 3. CI/CD & Deployment (Phase 3)
 
 ### 3.1 GitHub Actions-Workflow
-- [ ] `.github/workflows/deploy.yml` anlegen (siehe `3_Rahmenbedingungen.md` Abschnitt 3.2)
-- [ ] `base href` dynamisch über `--base-href "/${{ github.event.repository.name }}/"` setzen
-- [ ] 404.html für SPA-Routing erzeugen (Kopie von index.html)
-- [ ] Workflow testen (Push auf `main` → automatischer Build + Deploy)
+- [x] `.github/workflows/deploy.yml` angelegt (basierend auf `3_Rahmenbedingungen.md` Abschnitt 3.2)
+  - Nutzt `subosito/flutter-action` für Flutter-Setup
+  - Build mit `--base-href "/${{ github.event.repository.name }}/"`
+  - 404.html für SPA-Routing wird automatisch erzeugt
+  - Verwendet `actions/deploy-pages@v4` (kein separater gh-pages-Branch nötig)
+- [x] `base href` dynamisch über `--base-href "/${{ github.event.repository.name }}/"` gesetzt
+- [x] 404.html wird im Workflow per `cp build/web/index.html build/web/404.html` erzeugt
+- [ ] Workflow testen (Push auf `main` → automatischer Build + Deploy) – **nach erstem Push prüfen**
 
 ### 3.2 GitHub Pages konfigurieren
 - [ ] *Settings → Pages → Source* auf **GitHub Actions** umstellen
+  - Nach dem ersten Push auf `main` muss in den Repository-Settings umgestellt werden
+  - Dazu: GitHub → Repository → Settings → Pages → Source → "GitHub Actions" auswählen
 - [ ] Optional: Eigene Domain (CNAME) einrichten
+
+### 3.3 Web-Frontend optimiert
+- [x] `web/index.html` aktualisiert:
+  - Bessere Meta-Tags (SEO, Open Graph)
+  - Korrekter Titel: "Lebenslauf und Co. KG – Matthias Struck"
+  - Beschreibung und Keywords
+- [x] `web/manifest.json` aktualisiert:
+  - App-Name: "Lebenslauf und Co. KG"
+  - Theme-Farbe: Purple (#7B1FA2) passend zum App-Theme
 
 ## 4. Qualitätssicherung (Phase 4)
 
