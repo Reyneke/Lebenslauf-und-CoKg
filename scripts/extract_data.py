@@ -18,9 +18,14 @@ import fitz  # PyMuPDF
 DOC_DIR = Path("doc/ich")
 RAW_OUTPUT = Path("scripts/raw_data.json")
 
-CV_PDFS = [
-    "Matthias_Struck_13072026.pdf",
-]
+# Auto-detect the newest Lebenslauf PDF in doc/ich/ (by filename date)
+# e.g. Matthias_Struck_14072026.pdf → newer than Matthias_Struck_13072026.pdf
+CV_PDFS = sorted(
+    p.name for p in DOC_DIR.glob("Matthias_Struck_*.pdf")
+)
+# Take only the newest (last alphabetically = latest date)
+if CV_PDFS:
+    CV_PDFS = [CV_PDFS[-1]]
 
 
 # ─── Text Extraction ───────────────────────────────────────────────────────────
